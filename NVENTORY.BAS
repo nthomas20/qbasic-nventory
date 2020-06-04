@@ -81,8 +81,8 @@ DIM SHARED choice
 DIM SHARED subchoice
 DIM SHARED DoubleFrame AS STRING * 6
 DIM SHARED SingleFrame AS STRING * 6
-    DoubleFrame = "ɻȼ��"
-    SingleFrame = "ڿ�ٳ�"
+    DoubleFrame = "É»ÈŒºÍ"
+    SingleFrame = "Ú¿ÀÙ³Ä"
 
 'Start of NVENTORY
 CONST STARTMAX = 1
@@ -204,7 +204,7 @@ Hot$ = "A"
 DO UNTIL NewChoice < 0
 COLOR MenuC2, MenuC1
 LOCATE 1, 2
-PRINT " � "
+PRINT " ð "
 
 NewChoice = Menu(NewChoice, 2, 1, 22, MenuC1, MenuC2, MenuItem$(), Hot$, 1)
 
@@ -221,16 +221,17 @@ LOOP
 EXIT SUB
 
 ShowAboutStuff:
-    AboutWin = ExplodeWindow(7, 17, 45, 7, ManipulateC1, ManipulateC2, SingleFrame, "", 1, "")
+    AboutWin = ExplodeWindow(7, 17, 45, 8, ManipulateC1, ManipulateC2, SingleFrame, "", 1, "")
         WinPrintCenter AboutWin, 2, "INVENTORY MANAGER"
         WinPrintCenter AboutWin, 3, "Version 4.8 Release 3"
         WinPrintCenter AboutWin, 4, "Copyright (C) Nathan Thomas, 1993."
-        WinPrintCenter AboutWin, 6, STRING$(45, 196)
-        WinPrintCenter AboutWin, 7, "<  OK  >"
+        WinPrintCenter AboutWin, 5, "Produced by Independent Distributors"
+        WinPrintCenter AboutWin, 7, STRING$(45, 196)
+        WinPrintCenter AboutWin, 8, "<  OK  >"
 
         Kbd$ = ""
         DO UNTIL Kbd$ = CHR$(13)
-            Kbd$ = GetString$(AboutWin, 7, 22, "", "", 0, 0)
+            Kbd$ = GetString$(AboutWin, 8, 22, "", "", 0, 0)
         LOOP
 
     CloseWindow AboutWin
@@ -424,8 +425,8 @@ RETURN
 END SUB
 
 SUB BarMenu
-    BackChar$ = "�"
-    PercentageChar$ = "�"
+    BackChar$ = "±"
+    PercentageChar$ = "²"
         Fore = 7
         Back = 0
         Dur = 3
@@ -474,11 +475,11 @@ DT = Dur
 redraw = 0
         WinPrint BrowseWin, 1, Locs(1), Title$(1)
             FOR t = 2 TO NumOfFields
-                WinPrint BrowseWin, 1, Locs(t), "�" + Title$(t)
+                WinPrint BrowseWin, 1, Locs(t), "³" + Title$(t)
             NEXT
         WinPrint BrowseWin, 2, 1, STRING$(L, 196)
                 FOR t = 2 TO NumOfFields
-                    WinPrint BrowseWin, 2, Locs(t), "�"
+                    WinPrint BrowseWin, 2, Locs(t), "Å"
                 NEXT
 WinRedraw BrowseWin
 
@@ -581,7 +582,7 @@ OPEN Directory$ + RanFile$ FOR RANDOM AS #1 LEN = EquipLength
 
             FOR count1 = 1 TO NumOfFields
                 IF count1 <> 1 THEN
-                    WinPrint BrowseWin1, count, Locs(count1), "�" + BInfo$(count1, count)
+                    WinPrint BrowseWin1, count, Locs(count1), "³" + BInfo$(count1, count)
                 ELSE
                     WinPrint BrowseWin1, count, Locs(count1), BInfo$(count1, count)
                 END IF
@@ -600,7 +601,7 @@ Handle(BrowseWin2).XPos = X + 1 + currItem
 WinRedraw BrowseWin1
         FOR count1 = 1 TO NumOfFields
             IF count1 <> 1 THEN
-                WinPrint BrowseWin2, 1, Locs(count1), "�" + BInfo$(count1, currItem)
+                WinPrint BrowseWin2, 1, Locs(count1), "³" + BInfo$(count1, currItem)
             ELSE
                 WinPrint BrowseWin2, 1, Locs(count1), BInfo$(count1, currItem)
             END IF
@@ -1104,7 +1105,7 @@ DIM MenuItem$(6)
 MenuItem$(1) = " Enter new Item..."
 MenuItem$(2) = " Delete Item(s)..."
 MenuItem$(3) = " Change Item(s)..."
-MenuItem$(4) = "������������������������������������"
+MenuItem$(4) = "ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ"
 MenuItem$(5) = " Browse through specified Items..."
 MenuItem$(6) = " Browse through all Items"
 Hot$ = "EDC SA"
@@ -1140,9 +1141,9 @@ SUB Ending
     WinRedraw 0
     FinalWindow = ExplodeWindow(5, 20, 40, 9, MenuC1, MenuC2, DoubleFrame, "Goodbye!", 1, "")
         WinPrintCenter FinalWindow, 1, "Thank you for using the"
-        WinPrintCenter FinalWindow, 2, "�����������������������������������Ŀ"
-        WinPrintCenter FinalWindow, 3, "�                                   �"
-        WinPrintCenter FinalWindow, 4, "�������������������������������������"
+        WinPrintCenter FinalWindow, 2, "ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿"
+        WinPrintCenter FinalWindow, 3, "³                                   ³"
+        WinPrintCenter FinalWindow, 4, "ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ"
         WinPrintCenter FinalWindow, 5, "Your records are safe with us!"
         WinPrintCenter FinalWindow, 8, "(c)Copyright 1993 by Nathan Thomas"
         WinPrintCenter FinalWindow, 9, "All Rights Reserved"
@@ -1225,8 +1226,8 @@ SUB FileMenu
 DIM MenuItem$(6)
 
 MenuItem$(1) = " Clear Data File"
-MenuItem$(2) = "��������������������������������������"
-MenuItem$(4) = "��������������������������������������"
+MenuItem$(2) = "ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ"
+MenuItem$(4) = "ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ"
 MenuItem$(5) = " DOS Shell"
 MenuItem$(6) = " Exit"
 Hot$ = "C D SX"
@@ -1427,8 +1428,8 @@ WinInfo = MakeWindow(24, 0, 80, 1, InfoC1, InfoC2, "", "", 0, "")
     ShowMessage "Inventory Manager  (c)Copyright 1993 by Nathan Thomas"
 
 BarWin = MakeWindow(0, 0, 80, 1, MenuC1, MenuC2, "", "", 0, "")
-    WinPrint BarWin, 1, 1, "  �  File  Edit  Print  Options"
-    WinPrint BarWin, 1, 61, "�Temp: " + RanFile$
+    WinPrint BarWin, 1, 1, "  ð  File  Edit  Print  Options"
+    WinPrint BarWin, 1, 61, "³Temp: " + RanFile$
     WinPrint BarWin, 1, (60 - LEN(IDNum$)), IDNum$
         SortField = 1
 
@@ -1476,8 +1477,8 @@ IF RTRIM$(Hot$) <> "" THEN Length = Length + 1
             Item$(t) = LEFT$(Item$(t) + SPACE$(Length), Length)
                 IF RTRIM$(Hot$) <> "" AND MID$(Hot$, t, 1) <> " " THEN
                     Item$(t) = LEFT$(Item$(t), Length - 1) + MID$(Hot$, t, 1) + " "
-                ELSEIF LEFT$(Item$(t), 1) = "�" THEN
-                    Item$(t) = LEFT$(Item$(t), Length - 1) + "�"
+                ELSEIF LEFT$(Item$(t), 1) = "Ä" THEN
+                    Item$(t) = LEFT$(Item$(t), Length - 1) + "Ä"
                 END IF
                 WinPrint MenuWin, t, 1, Item$(t)
         NEXT
@@ -1500,14 +1501,14 @@ IF RTRIM$(Hot$) <> "" THEN Length = Length + 1
                     CASE CHR$(0) + "H"
                         currChoice = currChoice - 1
                             IF currChoice = 0 THEN currChoice = NumOfItems
-                        IF LEFT$(Item$(currChoice), 1) = "�" OR LEFT$(Item$(currChoice), 1) = "�" THEN
+                        IF LEFT$(Item$(currChoice), 1) = "Ä" OR LEFT$(Item$(currChoice), 1) = "Í" THEN
                             currChoice = currChoice - 1
                         END IF
 
                     CASE CHR$(0) + "P"
                         currChoice = currChoice + 1
                             IF currChoice = NumOfItems + 1 THEN currChoice = 1
-                        IF LEFT$(Item$(currChoice), 1) = "�" OR LEFT$(Item$(currChoice), 1) = "�" THEN
+                        IF LEFT$(Item$(currChoice), 1) = "Ä" OR LEFT$(Item$(currChoice), 1) = "Í" THEN
                             currChoice = currChoice + 1
                         END IF
 
@@ -1564,7 +1565,7 @@ SUB MoveFile
 CalcMax
     HoldOn = ExplodeWindow(10, 26, 27, 2, 0, 7, SingleFrame, "", 1, "")
         WinPrintCenter HoldOn, 1, "Updating..."
-        WinPrint HoldOn, 2, 3, "[���������������]  0%  "
+        WinPrint HoldOn, 2, 3, "[úúúúúúúúúúúúúúú]  0%  "
 
 KILL Directory$ + RanFile$
 
@@ -1895,11 +1896,11 @@ IF PrintErr = FALSE THEN
 PrintWin = ExplodeWindow(9, 27, 25, 3, ManipulateC1, ManipulateC2, DoubleFrame, "Print", 1, "")
     WinPrintCenter PrintWin, 2, "Printing Record:" + STR$(RecordNum)
 
-    LPRINT "�����������������������������������������������������������������������������Ŀ";
-    LPRINT "� Serial Number:"; Equip.SerialNumber; "     Item Description:"; Equip.Item; "     �";
-    LPRINT "�����������������������������������������������������������������������������Ĵ";
-    LPRINT "� Model:"; Equip.Model; "    Department:"; Equip.Department; "    Location:"; Equip.Location; "            �";
-    LPRINT "�������������������������������������������������������������������������������";
+    LPRINT "ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿";
+    LPRINT "³ Serial Number:"; Equip.SerialNumber; "     Item Description:"; Equip.Item; "     ³";
+    LPRINT "ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄŽ";
+    LPRINT "³ Model:"; Equip.Model; "    Department:"; Equip.Department; "    Location:"; Equip.Location; "            ³";
+    LPRINT "ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ";
 CloseWindow PrintWin
 END IF
 END SUB
