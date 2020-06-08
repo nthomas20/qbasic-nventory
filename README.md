@@ -5,6 +5,8 @@ This is a personal software project from 1993. This was intented just to keep tr
 
 I remember compiling this to an executable using QB45. Designed to run from the DOS prompt it was just "NVENTORY.EXE"
 
+There are some issues with disk storage, writing seems fine, but reading doesn't appear to be working in data, but it does know how `many` items have been saved.
+
 Here's some screens! Running for the first time in almost 20 years using [qb64](http://www.qb64.net/)
 
 ![About](./img/about.jpeg)
